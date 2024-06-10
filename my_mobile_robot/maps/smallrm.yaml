@@ -1,0 +1,7 @@
+image: /home/jetson/mobilerobot_ws/src/Jetson/my_mobile_robot/maps/smallrm.pgm
+resolution: 0.050000
+origin: [-4.184656, -2.198665, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

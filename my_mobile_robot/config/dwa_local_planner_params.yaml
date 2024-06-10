@@ -1,0 +1,55 @@
+DWAPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 1.0         # Maximum linear velocity in the x-direction
+  min_vel_x: -0.2          # Minimum linear velocity in the x-direction
+
+  max_vel_y: 0.0           # Maximum linear velocity in the y-direction (usually zero for non-holonomic robots)
+  min_vel_y: 0.0           # Minimum linear velocity in the y-direction
+
+  max_rot_vel: 1.0         # Maximum rotational velocity
+  min_rot_vel: 0.2         # Minimum rotational velocity (adjust for slower in-place rotations)
+
+  max_vel_trans: 0.5       # Maximum linear velocity when robot is moving in a straight line
+  min_vel_trans: 0.0       # Minimum linear velocity when robot is moving in a straight line
+
+  max_vel_theta: 1.0       # Maximum rotational velocity
+  min_vel_theta: -1.0      # Minimum rotational velocity
+  min_in_place_vel_theta: 0.01  # Minimum rotational velocity for in-place rotations
+
+  acc_lim_x: 2.0           # Maximum linear acceleration in the x-direction
+  acc_lim_y: 0.0           # Maximum linear acceleration in the y-direction
+  acc_lim_theta: 3.2       # Maximum angular acceleration
+
+  # Goal Tolerance Parameters
+  xy_goal_tolerance: 0.2   # Tolerance in the x-y plane for the goal position
+  yaw_goal_tolerance: 0.2  # Tolerance in yaw angle for the goal orientation
+  latch_xy_goal_tolerance: false  # If true, the xy_goal_tolerance will be used indefinitely until the goal is achieved
+
+  # Forward Simulation Parameters
+  sim_time: 1.7            # Amount of time to forward simulate trajectories (seconds)
+  sim_granularity: 0.025   # Granularity of the simulation (meters)
+  vx_samples: 20           # Number of linear velocity samples to generate
+  vy_samples: 0            # Number of linear velocity samples in the y-direction to generate (usually zero for non-holonomic robots)
+  vtheta_samples: 20       # Number of angular velocity samples to generate
+  controller_frequency: 10.0  # Frequency of the control loop (Hz)
+  penalize_negative_x: true  # Penalize trajectories with negative x-velocity
+
+  # Trajectory Scoring Parameters
+  path_distance_bias: 32.0 # Weight given to path distance
+  goal_distance_bias: 24.0 # Weight given to goal distance
+  occdist_scale: 0.1      # Weight given to obstacle distance
+  forward_point_distance: 0.325  # Distance from the robot to the point along the trajectory used for scoring
+  stop_time_buffer: 0.2    # Time buffer added to stop time (seconds)
+  scaling_speed: 0.25      # Speed at which to scale the robot's velocity when a collision is detected
+  max_scaling_factor: 0.2  # Maximum scaling factor for the robot's velocity
+
+  # Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.05  # Distance the robot must travel before oscillation flags are reset (meters)
+
+  # Debugging
+  publish_traj_pc: true    # Publish trajectory point cloud for visualization
+  publish_cost_grid_pc: true  # Publish cost grid point cloud for visualization
+  rot_stopped_vel: 0.01    # Rotational velocity threshold below which the robot is considered stopped (radians/s)
+  trans_stopped_vel: 0.01  # Linear velocity threshold below which the robot is considered stopped (m/s)
+  sim_period: 0.1          # Time period for the simulation (seconds)
